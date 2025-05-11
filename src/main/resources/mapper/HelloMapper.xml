@@ -1,0 +1,5 @@
+<mapper namespace="com.github.krystalics.dao.HelloMapper">
+    <select id="findByName" resultType="com.github.krystalics.domain.Hello">
+        SELECT id,name FROM hello WHERE name like '%#{name}%'
+    </select>
+</mapper>

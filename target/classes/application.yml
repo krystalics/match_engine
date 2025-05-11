@@ -3,3 +3,10 @@ server:
 spring:
   application:
     name: match-eninge
+
+# application.yml
+logging:
+  level:
+    root: INFO  # 根日志级别
+    com.github.krystalics: INFO  # 自定义包的日志级别
+    org.springframework: WARN  # Spring 框架的日志级别
