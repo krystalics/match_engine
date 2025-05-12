@@ -42,7 +42,7 @@ spring:
 logging:
   level:
     root: INFO  # 根日志级别
-    com.github.krystalics: INFO  # 自定义包的日志级别
+    com.github.krystalics: DEBUG  # 自定义包的日志级别
     org.springframework: WARN  # Spring 框架的日志级别
     org.mybatis: DEBUG #mybatis的日志debug、查看运行的sql
 
@@ -50,3 +50,5 @@ mybatis:
   mapper-locations: classpath:mapper/*.xml
   configuration:
     map-underscore-to-camel-case: true
+#    log-impl: org.apache.ibatis.logging.slf4j.Slf4jImpl
+

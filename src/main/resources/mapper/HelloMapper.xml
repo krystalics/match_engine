@@ -3,6 +3,6 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.github.krystalics.dao.HelloMapper">
     <select id="findByName" parameterType="java.lang.String"  resultType="com.github.krystalics.domain.Hello">
-        SELECT id,name FROM hello WHERE name like '%#{name,jdbcType=VARCHAR}%'
+        SELECT id,name FROM hello WHERE name = #{name,jdbcType=VARCHAR}
     </select>
 </mapper>
