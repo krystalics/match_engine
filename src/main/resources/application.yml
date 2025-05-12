@@ -24,18 +24,12 @@ spring:
       test-on-return: false
       pool-prepared-statements: true
       max-pool-prepared-statement-per-connection-size: 20
-
-      # 配置监控统计拦截的filters，stat:监控统计、log4j:日志记录、wall:防御SQL注入
-      filters: stat,wall,log4j
-
-      # WebStatFilter配置
-      web-stat-filter:
+#      filters: stat,wall,log4j  # 配置监控统计拦截的filters，stat:监控统计、log4j:日志记录、wall:防御SQL注入
+      web-stat-filter: # WebStatFilter配置
         enabled: true
         url-pattern: /*
         exclusions: "*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*"
-
-      # StatViewServlet配置
-      stat-view-servlet:
+      stat-view-servlet: # StatViewServlet配置
         enabled: true
         url-pattern: /druid/*
         reset-enable: true
@@ -50,6 +44,7 @@ logging:
     root: INFO  # 根日志级别
     com.github.krystalics: INFO  # 自定义包的日志级别
     org.springframework: WARN  # Spring 框架的日志级别
+    org.mybatis: DEBUG #mybatis的日志debug、查看运行的sql
 
 mybatis:
   mapper-locations: classpath:mapper/*.xml
