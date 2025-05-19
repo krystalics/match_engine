@@ -38,11 +38,26 @@ spring:
         allow: 127.0.0.1
         # deny: 192.168.1.100
 
+  kafka:
+      topic: ${spring.kafka.topic}
+      bootstrap-servers: localhost:9092  # Kafka 服务器地址
+      producer:
+        key-serializer: org.apache.kafka.common.serialization.StringSerializer
+        value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      consumer:
+        group-id: my-group  # 消费者组 ID
+        auto-offset-reset: earliest  # 消费位置重置策略
+        key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+        value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+        max-poll-records: 100  # 每次拉取的最大记录数
+        properties:
+          fetch.max.wait.ms: 500  # 最大等待时间
+
 # application.yml
 logging:
   level:
     root: INFO  # 根日志级别
-    com.github.krystalics: DEBUG  # 自定义包的日志级别
+    com.github.krystalics: DEBUG  # 自定义包的日志级别、debug级别时能看到mybatis执行的sql
     org.springframework: WARN  # Spring 框架的日志级别
     org.mybatis: DEBUG #mybatis的日志debug、查看运行的sql
 
